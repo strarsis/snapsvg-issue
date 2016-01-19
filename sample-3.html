@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="google" value="notranslate">
+    <title>Issue Sample 2 (window.onload)</title>
+  </head>
+  <body>
+    <object id="test-svg" type="image/svg+xml" data="//rawgit.com/adobe-webplatform/Snap.svg/master/demos/tutorial/mascot.svg"></object>
+
+    <script src='//rawgit.com/adobe-webplatform/Snap.svg/master/dist/snap.svg.js'></script>
+
+    <script>
+      // http://svg.dabbles.info/snaptut-load-animate
+      var s = Snap("#svgout");
+      var g = s.group();
+      var tux = Snap.load("http://svg.dabbles.info/Dreaming_tux.svg", function ( loadedFragment ) {
+                                                      g.append( loadedFragment );
+                                                      g.hover( hoverover, hoverout );
+                                                      g.text(300,100, 'hover over me');
+                                              } );
+      
+      var hoverover = function() { g.animate({ transform: 's2r45,150,150' }, 1000, mina.bounce ) };
+      var hoverout = function() { g.animate({ transform: 's1r0,150,150' }, 1000, mina.bounce ) };
+    </script>
+  </body>
+</html>
